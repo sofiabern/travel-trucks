@@ -11,6 +11,9 @@
   --background-light: #f2f4f7;
   --background-lighter: #f7f7f7;
   --white: #ffffff;
+
+  --func: ease-in-out;
+  --func-time: 300ms;
 }
 
 *,
