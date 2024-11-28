@@ -3,9 +3,9 @@ import Navigation from "./Navigation";
 import Logo from "./Logo";
 
 const StyledHeader = styled.header`
-  background-color: var(--background-lighter);
+  background-color: var(--lighter);
   padding: 20px 64px 19px;
-  border-bottom: 1px solid var(--background-light);
+  border-bottom: 1px solid var(--light);
   position: relative;
 `;
 
