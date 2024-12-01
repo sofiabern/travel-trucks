@@ -8,9 +8,12 @@
   --red: #d84343;
   --yellow: #ffc531;
   --light-gray: #dadde1;
-  --background-light: #f2f4f7;
-  --background-lighter: #f7f7f7;
+  --light: #f2f4f7;
+  --lighter: #f7f7f7;
   --white: #ffffff;
+
+  --func: ease-in-out;
+  --func-time: 300ms;
 }
 
 *,
@@ -24,7 +27,7 @@
 body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 h1,
@@ -53,4 +56,17 @@ img {
 button {
   cursor: pointer;
   font-family: inherit;
+}
+
+.container {
+  margin: 0 auto;          
+  padding: 0px 64px;      
+  max-width: 1440px;      
+  width: 100%;          
+  height:100%; 
+}
+
+.padding-container{
+  padding-top: 48px;
+  padding-bottom: 64px;
 }
