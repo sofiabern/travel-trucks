@@ -1,9 +1,9 @@
 import BoldText from "../BoldText";
 import Rating from "../Rating";
 import City from "../City";
-import RatingCityWrapper from "../RatingLocationWrapper";
+import RatingCityWrapper from "../RatingCityWrapper";
 import { formatCurrency } from "../../utils/formatCurrency";
-import s from './TruckHead.module.css'
+import s from "./TruckHead.module.css";
 
 const TruckHead = ({ truck }) => {
   return (
