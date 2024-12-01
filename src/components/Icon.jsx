@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Icon = styled.svg`
+ const Icon = styled.svg`
   fill: ${({ color }) => color || "var(--dark-blue)"};
 `;
 
