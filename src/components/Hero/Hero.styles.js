@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Button from "./Button";
-import heroImage1x from "../assets/images/hero@1x.webp";
-import heroImage2x from "../assets/images/hero@2x.webp";
-import heroImage3x from "../assets/images/hero@3x.webp";
+import heroImage1x from "../../assets/images/hero@1x.webp";
+import heroImage2x from "../../assets/images/hero@2x.webp";
+import heroImage3x from "../../assets/images/hero@3x.webp";
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 48px;
   font-weight: 600;
   line-height: 0.7;
@@ -12,7 +11,7 @@ const Title = styled.h1`
   margin-bottom: 16px;
 `;
 
-const Paragraph = styled.p`
+export const Text = styled.p`
   font-size: 24px;
   font-weight: 600;
   line-height: 1.5;
@@ -20,7 +19,7 @@ const Paragraph = styled.p`
   margin-bottom: 40px;
 `;
 
-const Section = styled.section`
+export const Section = styled.section`
   background-image: url(${heroImage1x});
   background-color: var(--gray);
   background-size: cover;
@@ -42,28 +41,10 @@ const Section = styled.section`
   }
 `;
 
-const HeroWrapper = styled.div`
+export const HeroWrapper = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 `;
-
-const Hero = () => {
-  return (
-    <Section>
-      <div className="container">
-        <HeroWrapper>
-          <Title>Campers of your dreams</Title>
-          <Paragraph>You can find everything you want in our catalog</Paragraph>
-          <Button to="/catalog" type="link" padding="49px">
-            View more
-          </Button>
-        </HeroWrapper>
-      </div>
-    </Section>
-  );
-};
-
-export default Hero;
