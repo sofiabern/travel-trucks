@@ -1,0 +1,34 @@
+.left-side {
+  width: 100%;
+}
+
+.name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.price-fav {
+  display: flex;
+  gap: 12px;
+}
+
+.rating-location {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rating,
+.location {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.descr,
+.features {
+  margin-bottom: 24px;
+}
+
