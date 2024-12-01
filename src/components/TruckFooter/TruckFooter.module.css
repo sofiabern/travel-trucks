@@ -1,0 +1,40 @@
+.links-wrapper {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 68px;
+  position: relative;
+}
+
+.links-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-gray);
+}
+
+.link {
+  position: relative;
+}
+
+.link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -26px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--red-light);
+  z-index: 10;
+}
+
+.content{
+  display: flex;
+  gap: 40px;
+}
+
+.tabs-content{
+  width: 631px;
+}

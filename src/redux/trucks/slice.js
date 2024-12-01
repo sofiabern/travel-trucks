@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTrucks } from "./operations"; // Імпортуємо асинхронну операцію
+import { fetchTrucks, fetchTruck } from "./operations"; 
 
 const trucksInitialState = {
-  items: [], 
-  totalItems: 0, 
-  currentPage: 1, 
-  loading: false, 
-  error: null, 
+  items: [],
+  totalItems: 0,
+  currentPage: 1,
+  loading: false,
+  error: null,
+  selectedTruck: null,
 };
 
 const handleError = (state, action) => {
@@ -39,10 +40,20 @@ const trucksSlice = createSlice({
         state.items = [...state.items, ...items];
         state.totalItems = total;
         state.currentPage += 1;
-      
       })
 
-      .addCase(fetchTrucks.rejected, handleError);
+      .addCase(fetchTrucks.rejected, handleError)
+      .addCase(fetchTruck.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchTruck.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedTruck = action.payload;
+      })
+      .addCase(fetchTruck.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 

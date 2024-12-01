@@ -20,13 +20,6 @@
   margin-bottom: 24px;
 }
 
-.rating,
-.location {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
 .descr,
 .features {
   margin-bottom: 24px;

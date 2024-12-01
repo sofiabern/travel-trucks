@@ -1,0 +1,9 @@
+.wrapper{
+    padding: 44px 52px;
+    border-radius: 10px;
+    background-color: var(--lighter);
+}
+
+.features{
+    margin-bottom: 100px;
+}

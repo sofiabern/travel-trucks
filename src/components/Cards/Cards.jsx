@@ -13,6 +13,7 @@ import { scrollTo } from "../../utils/scrollTo";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
+import  ErrorText  from "../ErrorText";
 import s from "../Cards/Cards.module.css";
 
 const Cards = () => {
@@ -59,7 +60,7 @@ const Cards = () => {
     <section className={s.cards}>
       {loading && <Loader />}
 
-      {errorMessage && <p className={s.error}>{errorMessage}</p>}
+      {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 
       <ul className={s["cards-list"]}>
         {trucks.map((truck) => (
