@@ -1,8 +1,7 @@
-import FilterTitle from "./FilterTitle.styles";
-import FilterList from "./FilterList.styles";
+import FilterTitle from "./FilterTitle";
+import FilterList from "./FilterList";
 import FilterRadio from "./FilterRadio";
 import typeOptions from "../data/typeOptions";
-
 
 const FilterType = () => {
   return (
