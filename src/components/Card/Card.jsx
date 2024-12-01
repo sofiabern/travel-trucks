@@ -11,7 +11,7 @@ import BoldText from "../BoldText";
 import Image from "../Image";
 import Rating from "../Rating";
 import City from "../City";
-import RatingCityWrapper from "../RatingLocationWrapper";
+import RatingCityWrapper from "../RatingCityWrapper";
 import s from "./Card.module.css";
 import icons from "../../assets/images/icons.svg";
 
