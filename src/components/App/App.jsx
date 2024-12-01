@@ -5,7 +5,7 @@ import Loader from "../Loader/Loader";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
-const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
+const NotFoundPage = lazy(() => import("../../pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   return (
