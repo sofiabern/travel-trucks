@@ -1,0 +1,45 @@
+.main {
+  height: calc(100vh - 72px);
+  text-align: center;
+  padding-top: 148px;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+.link {
+  color: var(--red-light);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 12px;
+  position: relative;
+  transition: color var(--func-time) var(--func);
+}
+
+.link:hover {
+  color: var(--red);
+}
+
+.link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--red-light);
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  transition: background-color var(--func-time) var(--func);
+}
+
+.link:hover::after {
+  background-color: var(--red);
+}
