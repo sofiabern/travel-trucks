@@ -1,19 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-
-
-import Header from "../Header";
-import Loader from "../Loader"
+import Header from "../Header/Header";
+import Loader from "../Loader/Loader";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
-const CatalogPage = lazy(() => import("../../pages/CatalogPage"));
+const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 
 function App() {
   return (
-<Router>
+    <Router>
       <Header />
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
