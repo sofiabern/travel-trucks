@@ -3,11 +3,15 @@ import { selectFav } from "../../redux/favorite/selectors";
 import { toggleFavorite } from "../../redux/favorite/slice";
 import { truncateText } from "../../utils/trunkateText";
 import { formatCurrency } from "../../utils/formatCurrency";
-import CardText from "../CardText";
-import Icon from "../Icon";
+import SmallText from "../SmallText";
 import TruckFeatures from "../TruckFeatures/TruckFeatures";
 import Button from "../Button/Button";
-import { Item, Image, BoldText, FavButton, FavIcon } from "./Card.styles";
+import { Item, FavButton, FavIcon } from "./Card.styles";
+import BoldText from "../BoldText";
+import Image from "../Image";
+import Rating from "../Rating";
+import City from "../City";
+import RatingCityWrapper from "../RatingLocationWrapper";
 import s from "./Card.module.css";
 import icons from "../../assets/images/icons.svg";
 
@@ -27,13 +31,19 @@ const Card = ({
   return (
     <Item>
       {gallery?.length > 0 && (
-        <Image src={gallery[0].thumb} alt={`${name} preview`} />
+        <Image
+          src={gallery[0].thumb}
+          alt={`${name} preview`}
+          $customStyles={{ objectPosition: "80% 50%" }}
+          width="292px"
+          height="375px"
+        />
       )}
       <div className={s["left-side"]}>
         <div className={s["name-price"]}>
-          <BoldText>{name}</BoldText>
+          <BoldText as="h2">{name}</BoldText>
           <div className={s["price-fav"]}>
-            <BoldText>{formatCurrency(price)}</BoldText>
+            <BoldText as="h2">{formatCurrency(price)}</BoldText>
             <FavButton onClick={handleFavoriteClick}>
               <FavIcon width="26px" height="24px" $isFavorite={isFavorite}>
                 <use href={`${icons}#heart`} />
@@ -42,32 +52,18 @@ const Card = ({
           </div>
         </div>
 
-        <div className={s["rating-location"]}>
-          <div className={s.rating}>
-            <Icon width="16px" height="16px" color="var(--yellow)">
-              <use href={`${icons}#star`} />
-            </Icon>
-            <CardText $underlined color="var(--dark-blue)">
-              {reviews.length === 0
-                ? "No reviews"
-                : `${rating}(${reviews.length} Review${reviews.length > 1 ? "s" : ""})`}{" "}
-            </CardText>
-          </div>
-          <div className={s.location}>
-            <Icon width="16px" height="16px" color="var(--dark-blue)">
-              <use href={`${icons}#map`} />
-            </Icon>
-            <CardText color="var(--dark-blue)">{location}</CardText>
-          </div>
-        </div>
+        <RatingCityWrapper $customStyles={{ marginBottom: "16px" }}>
+          <Rating rating={rating} reviews={reviews} />
+          <City location={location} />
+        </RatingCityWrapper>
 
-        <CardText color="var(--dark-gray)" className={s.descr}>
+        <SmallText color="var(--dark-gray)" className={s.descr}>
           {truncateText(description, 62)}
-        </CardText>
+        </SmallText>
 
         <TruckFeatures truck={truck} className={s.features} />
 
-        <Button type="link" $padding="40px">
+        <Button to={`/catalog/${truck.id}`} type="link" $padding="40px">
           Show more
         </Button>
       </div>
