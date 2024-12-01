@@ -1,4 +1,3 @@
-import { MutatingDots } from 'react-loader-spinner';
 import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -10,7 +9,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const Backdrop = styled.div`
+export const Backdrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -23,19 +22,3 @@ const Backdrop = styled.div`
   animation: ${fadeIn} 350ms ease-out forwards; 
   z-index: 10;
 `;
-
-const Loader = () => (
-  <Backdrop>
-    <MutatingDots
-      visible={true}
-      height="100"
-      width="100"
-      color="#ff0000"
-      secondaryColor="#ff0000"
-      radius="12.5"
-      ariaLabel="mutating-dots-loading"
-    />
-  </Backdrop>
-);
-
-export default Loader;
