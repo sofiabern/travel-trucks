@@ -1,5 +1,5 @@
 import Icon from "../Icon";
-import CardText from "../CardText";
+import SmallText from "../SmallText";
 import { Feature, defaultIconStyles } from "./TruckFeature.styles";
 import icons from "../../assets/images/icons.svg";
 
@@ -9,7 +9,7 @@ const TruckFeature = ({ iconId, label }) => {
       <Icon {...defaultIconStyles}>
         <use href={`${icons}#${iconId}`} />
       </Icon>
-      <CardText fontWeight="500">{label}</CardText>
+      <SmallText fontWeight="500">{label}</SmallText>
     </Feature>
   );
 };
