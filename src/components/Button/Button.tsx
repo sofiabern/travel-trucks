@@ -5,6 +5,7 @@ interface ButtonProps {
   to?: string;
   $appearance?: "transparent";
   $customStyles?: React.CSSProperties;
+  onClick?: () => void;
 }
 const Button = ({ children, type, to, ...props }: ButtonProps) => {
   if (type !== "link") {

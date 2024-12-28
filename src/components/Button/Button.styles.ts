@@ -9,6 +9,7 @@ interface StylesProps {
 
 interface StyledButtonProps extends StylesProps {
   type: "button" | "submit" | "reset";
+  onClick?: () => void;
 }
 
 
