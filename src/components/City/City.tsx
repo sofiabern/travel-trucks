@@ -3,7 +3,7 @@ import { SmallText } from "../../styles/Text.styles";
 import { Icon } from "../../styles/Icon.styles";
 import icons from '../../assets/images/icons.svg'
 
-const City = ({location}) => {
+const City = ({location}: { location: string }) => {
  return <StyledCity>
     <Icon width="16px" height="16px" color="var(--dark-blue)">
       <use href={`${icons}#map`} />

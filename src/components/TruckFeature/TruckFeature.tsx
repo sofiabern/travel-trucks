@@ -3,7 +3,14 @@ import { SmallText } from "../../styles/Text.styles";
 import { Feature } from "./TruckFeature.styles";
 import icons from "../../assets/images/icons.svg";
 
-const TruckFeature = ({ iconId, label }) => {
+
+interface TruckFeatureProps {
+  iconId: string; 
+  label: string;
+}
+
+
+const TruckFeature = ({ iconId, label }: TruckFeatureProps) => {
   return (
     <Feature>
       <Icon width="20px" height="20px">

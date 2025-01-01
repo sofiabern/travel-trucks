@@ -37,18 +37,4 @@ interface GalleryImage {
     reviews: Review[]; 
   }
 
-  interface FetchTrucksResponse {
-    items: TruckItem[];
-    total: number;
-  }
-
-  interface FetchTrucksArgs {
-    page: number;
-    filters: Filters;
-  }
-
-  interface FetchTruckResponse {
-    id: string;
-    name: string;
-    // Додайте інші поля, які вам потрібні
-  }
+ 
