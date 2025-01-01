@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />

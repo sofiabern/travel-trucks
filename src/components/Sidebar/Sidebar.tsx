@@ -1,20 +1,19 @@
+import { useDispatch } from "react-redux";
+import { fetchTrucks } from "../../store/trucks/operations";
+import { resetTrucks } from "../../store/trucks/slice";
+import { setFilter } from "../../store/filters/slice";
 import { Formik } from "formik";
 import Location from "../Location/Location";
 import Filters from "../Filters/Filters";
 import Button from "../Button/Button";
-import { StyledForm, ButtonWrapper } from "./Sidebar.styled";
-
-interface SidebarFormValues {
-  location: string;
-  automatic: boolean;
-  AC: boolean;
-  kitchen: boolean;
-  TV: boolean;
-  bathroom: boolean;
-  truckType: string;
-}
+import { StyledForm, ButtonWrapper } from "./Sidebar.styles";
+import { AppDispatch } from "../../store/store";
+import { Filters as SidebarFormValues } from "../../types/filters";
 
 const Sidebar = () => {
+
+  const dispatch = useDispatch<AppDispatch>();
+
   const initialValues: SidebarFormValues = {
     location: "",
     automatic: false,
@@ -26,12 +25,17 @@ const Sidebar = () => {
   };
 
   const handleSubmit = (values: SidebarFormValues) => {
-    console.log(values);
+    dispatch(setFilter(values));
+
+    dispatch(resetTrucks());
+    dispatch(fetchTrucks({ page: 1, filters: values }));
 
   };
 
   const handleReset = () => {
-    console.log("reset");
+    dispatch(resetTrucks());
+    dispatch(fetchTrucks({ page: 1, filters: {} }));
+    dispatch(setFilter(initialValues));
 
   };
 
