@@ -22,6 +22,7 @@ import { truncateText } from "../../utils/truncateText";
 import icons from "../../assets/images/icons.svg";
 import { Truck } from "../../types/truck";
 import { AppDispatch } from "../../store/store";
+import { shortTruckFeatures } from "../../data/truckFeatures";
 
 interface TruckCardProps {
   truck: Truck;
@@ -68,9 +69,13 @@ const TruckCard = ({ truck }: TruckCardProps) => {
         <SmallText $customStyles={{ marginBottom: "24px" }}>
           {truncateText(description, 62)}
         </SmallText>
-        <TruckFeatures truck={truck} $customStyles={{ marginBottom: "24px" }} />
+        <TruckFeatures
+          truck={truck}
+          features={shortTruckFeatures}
+          $customStyles={{ marginBottom: "24px", width: "396px" }}
+        />
         <Button
-          to={`/catalog/${id}`}
+          to={`/catalog/${id}#features`}
           type="link"
           $customStyles={{ padding: "16px 40px" }}
         >

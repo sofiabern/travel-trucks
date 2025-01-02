@@ -2,14 +2,17 @@ import React from "react";
 import { List } from "./TruckFeatures.styles";
 import TruckFeature from "../TruckFeature/TruckFeature";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
-import truckFeatures from "../../data/truckFeatures";
+import { Truck } from "../../types/truck";
+import { TruckFeatureItem } from "../../data/truckFeatures";
+
 
 interface TruckFeaturesProps {
-    truck: any,
-    $customStyles: React.CSSProperties
+    truck: Truck,
+    features: TruckFeatureItem[],
+    $customStyles?: React.CSSProperties
 }
 
-const TruckFeatures = ({ truck, $customStyles }: TruckFeaturesProps) => {
+const TruckFeatures = ({ truck, features, $customStyles }: TruckFeaturesProps) => {
   return (
     <List $customStyles={$customStyles}>
       {truck.transmission && (
@@ -26,7 +29,7 @@ const TruckFeatures = ({ truck, $customStyles }: TruckFeaturesProps) => {
         />
       )}
 
-      {truckFeatures.map(({ key, iconId, label }) =>
+      {features.map(({ key, iconId, label }) =>
         truck[key] ? (
           <TruckFeature key={key} iconId={iconId} label={label} />
         ) : null

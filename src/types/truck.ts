@@ -3,7 +3,7 @@ interface GalleryImage {
     original: string;
   }
 
-  interface Review {
+ export  interface Review {
     reviewer_name: string;
     reviewer_rating: number;
     comment: string;
@@ -16,14 +16,14 @@ interface GalleryImage {
     rating: number;
     location: string;
     description: string;
-    form: "alcove" | "van" | "fullyIntegrated"; 
+    form: "alcove" | "panelTruck" | "fullyIntegrated"; 
     length: string;
     width: string;
     height: string;
     tank: string;
     consumption: string;
     transmission: "automatic" | "manual"; 
-    engine: "diesel" | "petrol"; 
+    engine: "diesel" | "petrol" | "hybrid"; 
     AC: boolean;
     bathroom: boolean;
     kitchen: boolean;
