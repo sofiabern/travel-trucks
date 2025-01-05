@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled from "styled-components";    
+
+
+export const Wrapper = styled.div`
+  position: relative; 
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--light-gray);
+  }
+`
 
 export const Table = styled.table`
   width: 527px;

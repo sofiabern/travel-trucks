@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
   width: 641px;
   border: 1px solid var(--light-gray);
   border-radius: 10px;
-`
+  align-self: flex-start;
+`;
 
 export const ErrorText = styled.div`
   color: red;
@@ -13,13 +14,15 @@ export const ErrorText = styled.div`
   margin-bottom: 8px;
 `;
 
-export const StyledTextArea = styled.textarea<{$customStyles?: React.CSSProperties;}>`
+export const StyledTextArea = styled.textarea<{
+  $customStyles?: React.CSSProperties;
+}>`
   font-size: 16px;
   color: var(--dark-blue);
   line-height: 1.5;
   padding: 18px;
   width: 100%;
- resize: none;
+  resize: none;
   background-color: var(--lighter);
   border-radius: 12px;
   border-color: transparent;
@@ -37,6 +40,5 @@ export const StyledTextArea = styled.textarea<{$customStyles?: React.CSSProperti
     color: var(--dark-blue);
   }
 
-     ${({ $customStyles }) =>
-    $customStyles && { ...$customStyles }}
+  ${({ $customStyles }) => $customStyles && { ...$customStyles }}
 `;

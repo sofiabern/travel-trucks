@@ -23,7 +23,7 @@ export const StyledInput = styled.input<{$customInputStyles?: React.CSSPropertie
   height: 60px;
   background-color: var(--lighter);
   border-radius: 12px;
-  border-color: transparent;
+  border: 1px solid transparent;
   transition: all var(--func-time) var(--func);
 
   &::placeholder {

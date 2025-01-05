@@ -1,4 +1,4 @@
-import { Table, TableCell } from "./FeaturesTable.styles";
+import { Wrapper, Table, TableCell } from "./FeaturesTable.styles";
 import { BoldText } from "../../../../styles/Text.styles";
 import { capitalizeFirstLetter } from "../../../../utils/capitalizeFirstLetter";
 import { formatForm } from "../../../../utils/formatForm";
@@ -28,10 +28,14 @@ const truckFeatures: TruckFeatureKeys[] = [
 
 const FeaturesTable = ({ truck }: FeaturesTableProps) => {
   return (
-    <>
+    <Wrapper>
       <BoldText
         as="h3"
-        $customStyles={{ marginBottom: "48px", fontSize: "20px" }}
+        $customStyles={{
+          marginBottom: "49px",
+          fontSize: "20px",
+          lineHeight: "1.2",
+        }}
       >
         Vehicle details
       </BoldText>
@@ -63,7 +67,7 @@ const FeaturesTable = ({ truck }: FeaturesTableProps) => {
           })}
         </tbody>
       </Table>
-    </>
+    </Wrapper>
   );
 };
 

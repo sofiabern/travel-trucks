@@ -4,6 +4,7 @@ import Input from "../../Input/Input";
 import { Wrapper, ErrorText, StyledTextArea } from "./BookForm.styles";
 import { BoldText, SmallText } from "../../../styles/Text.styles";
 import Button from "../../Button/Button";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
@@ -13,7 +14,6 @@ const validationSchema = Yup.object({
     bookingDate: Yup.date()
     .required("Booking date is required")
     .min(new Date(), "Booking date cannot be in the past"),
-  comment: Yup.string(),
 });
 
 const BookForm = () => {
@@ -38,6 +38,7 @@ const BookForm = () => {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log("Form submitted:", values);
+          toast.success("Form submitted successfully!"); 
         }}
       >
         <Form>
@@ -70,14 +71,16 @@ const BookForm = () => {
             placeholder="Comment"
             $customStyles={{ marginBottom: "24px", height: "118px" }}
           />
-          <ErrorMessage name="comment" component={ErrorText} />
           <Button
-             
-              type="submit"
-              $customStyles={{padding: '16px 63px', display: 'block', margin: '0 auto'}}
-            >
-              Send
-            </Button>
+            type="submit"
+            $customStyles={{
+              padding: "16px 63px",
+              display: "block",
+              margin: "0 auto",
+            }}
+          >
+            Send
+          </Button>
         </Form>
       </Formik>
     </Wrapper>

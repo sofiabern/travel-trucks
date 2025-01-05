@@ -7,7 +7,6 @@ interface StarRatingProps {
   }
 
 const StarRating = ({ rating }: StarRatingProps) => {
-console.log(rating)
   const fullStars = Math.floor(rating);
   const emptyStars = 5 - fullStars;
 
