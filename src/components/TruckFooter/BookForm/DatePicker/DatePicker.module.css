@@ -1,0 +1,24 @@
+.date-picker {
+  font-size: 16px;
+  color: var(--dark-blue);
+  line-height: 1.5;
+  padding: 18px;
+  width: 100%;
+  background-color: var(--lighter);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  margin-bottom: 14px;
+  transition: all var(--func-time) var(--func);
+
+  &::placeholder {
+    font-size: 16px;
+    color: var(--gray);
+    line-height: 1.5;
+    transition: all var(--func-time) var(--func);
+  }
+
+  &:hover::placeholder,
+  &:focus::placeholder {
+    color: var(--dark-blue);
+  }
+}

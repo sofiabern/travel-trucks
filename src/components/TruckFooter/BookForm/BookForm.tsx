@@ -4,6 +4,7 @@ import Input from "../../Input/Input";
 import { Wrapper, ErrorText, StyledTextArea } from "./BookForm.styles";
 import { BoldText, SmallText } from "../../../styles/Text.styles";
 import Button from "../../Button/Button";
+import DatePicker from "./DatePicker/DatePicker";
 import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
@@ -11,9 +12,15 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
-    bookingDate: Yup.date()
-    .required("Booking date is required")
-    .min(new Date(), "Booking date cannot be in the past"),
+    bookingDates: Yup.array()
+    .of(Yup.date().nullable())
+    .test(
+      "both-dates-required",
+      "Both start and end dates are required",
+      (value) => value && value.length === 2 && value.every((date) => !!date)
+    )
+    .required("Please specify your booking dates"),
+  comment: Yup.string().max(200, "Maximum 200 characters"),
 });
 
 const BookForm = () => {
@@ -34,11 +41,13 @@ const BookForm = () => {
         initialValues={{
           name: "",
           email: "",
+          bookingDates: [null, null],
+          comment: "",
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log("Form submitted:", values);
-          toast.success("Form submitted successfully!"); 
+          toast.success("Form submitted successfully!");
         }}
       >
         <Form>
@@ -58,19 +67,19 @@ const BookForm = () => {
           />
           <ErrorMessage name="email" component={ErrorText} />
           <Field
-            name="bookingDate"
-            as={Input}
-            placeholder="Booking date*"
-            type="date"
-            $customInputStyles={{ marginBottom: "14px" }}
+            name="bookingDates"
+            component={DatePicker}
+            options={{ mode: "range",  minDate: "today", dateFormat: "d-m-Y" }}
           />
-          <ErrorMessage name="bookingDate" component={ErrorText} />
+          <ErrorMessage name="bookingDates" component={ErrorText} />
           <Field
             name="comment"
             as={StyledTextArea}
             placeholder="Comment"
             $customStyles={{ marginBottom: "24px", height: "118px" }}
           />
+          <ErrorMessage name="comment" component={ErrorText} />
+
           <Button
             type="submit"
             $customStyles={{
